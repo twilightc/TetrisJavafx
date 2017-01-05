@@ -1,5 +1,10 @@
 package sample;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
+
 /**
  * Created by rolo on 2017/1/5.
  */
@@ -16,6 +21,20 @@ public class Block {
 
     public blockColor getColor(){
         return this.col;
+    }
+
+    private static final List<blockColor> VALUES =
+            Collections.unmodifiableList(Arrays.asList(blockColor.values()));
+
+    private static final int SIZE = VALUES.size();
+    private static final Random RANDOM = new Random();
+
+    public static blockColor randomColor()  {
+        while (true){
+            blockColor bc = VALUES.get(RANDOM.nextInt(SIZE));
+            if(bc != blockColor.NONE)
+                return bc;
+        }
     }
 }
 
