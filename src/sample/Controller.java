@@ -1,5 +1,9 @@
 package sample;
 
+import javafx.application.Application;
+import javafx.scene.control.Label;
+import javafx.scene.input.KeyCode;
+
 public class Controller {
     private Model model;
     private Main view;
@@ -34,8 +38,9 @@ Thread thread;
 
     public void right(){}
 
-    public void down(){}
+    public void down(){  }
 
+    public void pause(){}
 }
 
 class timer implements Runnable{
@@ -57,3 +62,5 @@ class timer implements Runnable{
         }
     }
 }
+
+
