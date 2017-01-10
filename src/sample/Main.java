@@ -10,6 +10,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
 import javafx.stage.Stage;
+import javafx.scene.text.*;
 
 public class Main extends Application {
     public GridPane pane;
@@ -56,11 +57,27 @@ public class Main extends Application {
         vb.getChildren().add(endButton);
         pane.add(vb,1,0);
 
-        pane.setOnKeyPressed(e->{
-            if(e.getCode() == KeyCode.A){
-            System.out.println("3");
-            this.notifyView();}
+        Text KBpress = new Text();
+        pane.add(KBpress, 1,1);
+        pane.setOnKeyPressed(event->{
+            KeyCode code=event.getCode();
+            if(code == KeyCode.P ){
+                controller.pause();
+                this.notifyView();
+            }else if(code == KeyCode.LEFT){
+                KBpress.setText("Left");
+                controller.left();
+            }else if(code == KeyCode.RIGHT){
+                controller.right();
+            }else if(code == KeyCode.DOWN){
+                controller.down();
+            }else if(code == KeyCode.R){
+                controller.rotate();
+            }else if(code == KeyCode.V){
+                KBpress.setText("PressV");
+            }
         });
+
 
         Scene scene = new Scene(pane, 350, 420);
 
@@ -71,8 +88,8 @@ public class Main extends Application {
 
     public void notifyView(){
         paintPane.getChildren().clear();
-        paintPane.getChildren().add(new Rectangle(50,50,50,50));
-        paintPane.getChildren().add(new Rectangle(100,100,rec_side_length,rec_side_length));
+        //paintPane.getChildren().add(new Rectangle(50,50,50,50));
+        //paintPane.getChildren().add(new Rectangle(100,100,rec_side_length,rec_side_length));
         model.getBoard();
         model.getBoard()[0][0].getColor();
 

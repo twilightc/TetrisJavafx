@@ -40,6 +40,76 @@ public class Model {
     }
 
     private Main view;
+
+    public void invokeDrop(){
+        for(PositionedBlock pb : activeShape.positionedBlock) {
+            pb.setX(pb.getPos()[0] + 1);
+        }
+        update();
+    }
+
+    public void rotate(){
+        PositionedBlock[] pb = activeShape.positionedBlock;
+        PositionedBlock[] temp = pb;
+
+
+
+        /*
+        for (int i = 0; i < len; ++i) {
+            for (int j = 0; j < len; ++j) {
+                temp[last - j][i] = data[i][j];
+            }
+        }*/
+
+        update();
+    }
+
+    public void left(){
+        for(int indexa = 0; indexa < DEFAULT_BOARD_HEIGHT; indexa++){
+            for(int indexb = 0; indexb < DEFAULT_BOARD_WIDTH; indexb++){
+                Board[indexa][indexb] = new Block(Block.blockColor.NONE);
+            }
+        }
+
+        for(PositionedBlock pb : activeShape.positionedBlock) {
+               pb.setY(pb.getPos()[1] - 1);
+        }
+        update();
+
+    }
+
+    public void right(){
+        for(int indexa = 0; indexa < DEFAULT_BOARD_HEIGHT; indexa++){
+            for(int indexb = 0; indexb < DEFAULT_BOARD_WIDTH; indexb++){
+                Board[indexa][indexb] = new Block(Block.blockColor.NONE);
+            }
+        }
+        for(PositionedBlock pb : activeShape.positionedBlock) {
+            pb.setY(pb.getPos()[1] + 1);
+        }
+        update();
+    }
+
+    public void down(){
+        for(int indexa = 0; indexa < DEFAULT_BOARD_HEIGHT; indexa++){
+            for(int indexb = 0; indexb < DEFAULT_BOARD_WIDTH; indexb++){
+                Board[indexa][indexb] = new Block(Block.blockColor.NONE);
+            }
+        }
+        for(PositionedBlock pb : activeShape.positionedBlock) {
+            pb.setX(pb.getPos()[0] + 1);
+        }
+        update();
+    }
+
+    private boolean outOfBound(){
+        return true;
+    }
+
+    private boolean coincide(){
+        return  true;
+    }
+
     public void setView(Main view){
         this.view = view;
     }
