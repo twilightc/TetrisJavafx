@@ -52,15 +52,6 @@ public class Model {
         PositionedBlock[] pb = activeShape.positionedBlock;
         PositionedBlock[] temp = pb;
 
-
-
-        /*
-        for (int i = 0; i < len; ++i) {
-            for (int j = 0; j < len; ++j) {
-                temp[last - j][i] = data[i][j];
-            }
-        }*/
-
         update();
     }
 
@@ -75,12 +66,11 @@ public class Model {
                pb.setY(pb.getPos()[1] - 1);
         }
         update();
-
     }
 
-    public void right(){
-        for(int indexa = 0; indexa < DEFAULT_BOARD_HEIGHT; indexa++){
-            for(int indexb = 0; indexb < DEFAULT_BOARD_WIDTH; indexb++){
+    public void right() {
+        for (int indexa = 0; indexa < DEFAULT_BOARD_HEIGHT; indexa++) {
+            for (int indexb = 0; indexb < DEFAULT_BOARD_WIDTH; indexb++) {
                 Board[indexa][indexb] = new Block(Block.blockColor.NONE);
             }
         }

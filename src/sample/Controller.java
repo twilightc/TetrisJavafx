@@ -1,5 +1,9 @@
 package sample;
 
+import javafx.application.Application;
+import javafx.scene.control.Label;
+import javafx.scene.input.KeyCode;
+
 public class Controller {
     private Model model;
     private Main view;
