@@ -59,13 +59,12 @@ public class Main extends Application {
 
         Text KBpress = new Text();
         pane.add(KBpress, 1,1);
-        pane.setOnKeyPressed(event->{
-            KeyCode code=event.getCode();
+
+        pane.setOnKeyPressed(e->{
+            KeyCode code=e.getCode();
             if(code == KeyCode.P ){
                 controller.pause();
-                this.notifyView();
             }else if(code == KeyCode.LEFT){
-                KBpress.setText("Left");
                 controller.left();
             }else if(code == KeyCode.RIGHT){
                 controller.right();
