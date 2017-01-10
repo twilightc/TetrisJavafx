@@ -40,6 +40,45 @@ public class Model {
     }
 
     private Main view;
+
+    public void invokeDrop(){
+        for(PositionedBlock pb : activeShape.positionedBlock) {
+            pb.setX(pb.getPos()[0] + 1);
+        }
+        update();
+    }
+
+    public void rotate(){}
+
+    public void left(){
+        for(PositionedBlock pb : activeShape.positionedBlock) {
+            pb.setY(pb.getPos()[1] - 1);
+        }
+        update();
+    }
+
+    public void right(){
+        for(PositionedBlock pb : activeShape.positionedBlock) {
+            pb.setY(pb.getPos()[1] + 1);
+        }
+        update();
+    }
+
+    public void down(){
+        for(PositionedBlock pb : activeShape.positionedBlock) {
+            pb.setX(pb.getPos()[0] + 1);
+        }
+        update();
+    }
+
+    private boolean outOfBound(){
+        return true;
+    }
+
+    private boolean coincide(){
+        return  true;
+    }
+
     public void setView(Main view){
         this.view = view;
     }

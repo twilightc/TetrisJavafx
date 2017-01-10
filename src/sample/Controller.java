@@ -24,18 +24,17 @@ Thread thread;
         thread = null;
     }
 
-    public void invokeDrop(){
+    public void invokeDrop(){model.invokeDrop(); }
 
-    }
+    public void rotate(){model.rotate();}
 
-    public void rotate(){}
+    public void left(){model.left();}
 
-    public void left(){}
+    public void right(){model.right();}
 
-    public void right(){}
+    public void down(){model.down();}
 
-    public void down(){}
-
+    public void pause(){}
 }
 
 class timer implements Runnable{
@@ -57,3 +56,5 @@ class timer implements Runnable{
         }
     }
 }
+
+
